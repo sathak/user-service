@@ -5,9 +5,10 @@
       mongoose = require('mongoose'),
       User = require('./models/user'),
       bodyParser = require('body-parser');
+      var config = require('./config/config');
 
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb+srv://admin:admin@cluster0-onqm5.gcp.mongodb.net/users?retryWrites=true&w=majority');
+    mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
 
     app.use(bodyParser.urlencoded({extended:true}));
