@@ -16,14 +16,8 @@ var userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     dob: { type: Date},
     email:{type: String, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
-    created_at: { type: Date, default: Date.now },
-    updated_at: { type: Date, default: Date.now }
-});
-userSchema.pre('save', function(next){
-    now = new Date();
-    this.updated_at = now;
-    next();
-  });
+}, {timestamps: true} );
+
 // the schema is useless so far
 // we need to create a model using it
 var User = mongoose.model('User', userSchema);
