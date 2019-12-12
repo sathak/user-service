@@ -19,7 +19,11 @@ var userSchema = new Schema({
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
 });
-
+userSchema.pre('save', function(next){
+    now = new Date();
+    this.updated_at = now;
+    next(); 
+  });
 // the schema is useless so far
 // we need to create a model using it
 var User = mongoose.model('User', userSchema);
