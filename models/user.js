@@ -22,7 +22,7 @@ var userSchema = new Schema({
 userSchema.pre('save', function(next){
     now = new Date();
     this.updated_at = now;
-    next(); 
+    next();
   });
 // the schema is useless so far
 // we need to create a model using it
