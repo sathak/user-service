@@ -21,12 +21,13 @@ exports.create_a_user = function (req, res) {
         if (err)
             res.send(err);
         //res.json(user);
+        User.find({}, function (err, user) {
+            if (err)
+                res.send(err);
+            res.json(user);
+        });
     });
-    User.find({}, function (err, user) {
-        if (err)
-            res.send(err);
-        res.json(user);
-    });
+ 
 };
 
 
@@ -45,12 +46,13 @@ exports.update_a_user = function (req, res) {
         if (err)
             res.send(err);
        // res.json(user);
-    });
-     User.find({}, function (err, user) {
+       User.find({}, function (err, user) {
         if (err)
             res.send(err);
         res.json(user);
     });
+    });
+    
 };
 
 
@@ -61,10 +63,11 @@ exports.delete_a_user = function (req, res) {
         if (err)
             res.send(err);
        // res.json({ message: 'user successfully deleted' });
-    });
-    User.find({}, function (err, user) {
+       User.find({}, function (err, user) {
         if (err)
             res.send(err);
         res.json(user);
     });
+    });
+    
 };
