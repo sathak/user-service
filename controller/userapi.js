@@ -57,12 +57,8 @@ exports.delete_a_user = function (req, res) {
     }, function (err, User) {
         if (err)
             res.send(err);
-       // res.json({ message: 'user successfully deleted' });
-       User.find({}, function (err, user) {
-        if (err)
-            res.send(err);
-        res.json(user);
-    });
+       res.json({ message: 'user successfully deleted' });
+      
     });
     
 };
