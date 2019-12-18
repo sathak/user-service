@@ -11,7 +11,12 @@
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
-
+    app.all('*', function(req, res, next) {
+         res.header("Access-Control-Allow-Origin", '*');
+         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+         res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+         next();
+    });
     
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(bodyParser.json());
