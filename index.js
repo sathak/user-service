@@ -11,16 +11,7 @@
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
- app.all('*', function(req, res, next) {
- var origin = req.get('origin'); 
-     res.header('Access-Control-Allow-Origin', origin);
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-    res.header("Access-Control-Allow-Headers", "Accept");
-  res.header("Access-Control-Allow-Headers", "Authorization");
-     res.header('Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-     next();
-});
+
     
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(bodyParser.json());
