@@ -8,7 +8,11 @@
       bodyParser = require('body-parser');
     
     var config = require('./config/config');
-    expressOasGenerator.init(app, {});
+    expressOasGenerator.init(app, function(spec) {
+  _.set(spec, 'info.title', 'User');
+  _.set(spec, "paths['/path'].get.parameters[0].example", 2);
+  return spec;
+});
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
