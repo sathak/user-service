@@ -34,7 +34,10 @@
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(bodyParser.json());
 
-
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
     
     routes(app);
 
