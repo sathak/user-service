@@ -15,7 +15,7 @@
 
      const options = {
              swaggerDefinition,
-             apis: ['./helper/*.js'], // <-- not in the definition, but in the options
+             apis: ['./helper/route.js'], // <-- not in the definition, but in the options
       };
  
     const swaggerSpec = swaggerJSDoc(options);
