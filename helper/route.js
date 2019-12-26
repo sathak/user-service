@@ -22,6 +22,32 @@ module.exports = function (app) {
  *         description: List of Users
  *         schema:
  *           type: object
+ *   post:
+ *     summary: Add more user
+ *     description: Add user to the list
+ *     tags:
+ *       - User
+  *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               User:
+ *                 type: array
+ *                 items:
+ *                   username: string
+ *                   dob: string
+ *                   email: string
+ *     responses:
+ *       200:
+ *         description: Adds the users in body
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *               default: 'Added'
  */
 
       .get(userapi.list_all_user)
