@@ -1,6 +1,7 @@
 'use strict';
  var express = require('express'),
-      expressOasGenerator = require('express-oas-generator'),
+      swaggerJSDoc = require('swagger-jsdoc'),
+     swaggerUi = require('swagger-ui-express'),
       app = express(),
       port = process.env.PORT || 3000,
       mongoose = require('mongoose'),
@@ -8,7 +9,18 @@
       bodyParser = require('body-parser');
     
     var config = require('./config/config');
-    expressOasGenerator.init(app, {});
+    const swaggerDefinition = {
+         basePath: '/'
+    };
+
+     const options = {
+             swaggerDefinition,
+             apis: ['./helper/*.js'], // <-- not in the definition, but in the options
+      };
+ 
+    const swaggerSpec = swaggerJSDoc(options);
+
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
