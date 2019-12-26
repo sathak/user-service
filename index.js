@@ -1,6 +1,5 @@
 'use strict';
  var express = require('express'),
-      swaggerJSDoc = require('swagger-jsdoc'),
      swaggerUi = require('swagger-ui-express'),
       app = express(),
       port = process.env.PORT || 3000,
@@ -9,16 +8,9 @@
       bodyParser = require('body-parser');
     
     var config = require('./config/config');
-    const swaggerDefinition = {
-         basePath: '/'
-    };
-
-     const options = {
-             swaggerDefinition,
-             apis: ['./helper/route.js'], // <-- not in the definition, but in the options
-      };
+   
  
-    const swaggerSpec = swaggerJSDoc(options);
+    const swaggerSpec = require('./config/swagger.json');
 
     
     mongoose.Promise = global.Promise;
@@ -34,11 +26,6 @@
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(bodyParser.json());
 
-app.get('/swagger.json', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-});
-    
     routes(app);
 
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
