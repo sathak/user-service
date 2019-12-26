@@ -9,6 +9,12 @@ module.exports = function (app) {
     
     //// User Routes
     app.route('/api/user')
+    /**
+ * @swagger
+ * /users:
+ *    get:
+ *      description: This should return all users
+ */
       .get(userapi.list_all_user)
       .post(userapi.create_a_user);
 
