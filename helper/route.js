@@ -26,7 +26,7 @@ module.exports = function (app) {
  *               items:
  *                 type: string
  */
- */
+
       .get(userapi.list_all_user)
       .post(userapi.create_a_user);
 
