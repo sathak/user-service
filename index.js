@@ -15,7 +15,7 @@
 
      const options = {
              swaggerDefinition,
-             apis: [path.resolve(__dirname, './helper/route.js')], // <-- not in the definition, but in the options
+             apis: [path.resolve(__dirname, 'index.js')], // <-- not in the definition, but in the options
       };
  
     const swaggerSpec = swaggerJSDoc(options);
