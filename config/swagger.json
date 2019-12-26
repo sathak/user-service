@@ -3,10 +3,8 @@
   "info": {
     "version": "1.0.0",
     "title": "User API",
-    "description": "",
-    
+    "description": ""
   },
-  
   "basePath": "/",
   "tags": [
     {
@@ -16,7 +14,7 @@
   ],
   "schemes": [
     "http",
-	"https"
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -28,7 +26,7 @@
     "/api/user": {
       "post": {
         "tags": [
-          "Users"
+          "User"
         ],
         "description": "Create new user in system",
         "parameters": [
@@ -80,7 +78,7 @@
       ],
       "get": {
         "tags": [
-          "Users"
+          "User"
         ],
         "summary": "Get user with given ID",
         "responses": {
@@ -95,7 +93,7 @@
       "delete": {
         "summary": "Delete user with given ID",
         "tags": [
-          "Users"
+          "User"
         ],
         "responses": {
           "200": {
@@ -109,7 +107,7 @@
       "put": {
         "summary": "Update user with give ID",
         "tags": [
-          "Users"
+          "User"
         ],
         "parameters": [
           {
@@ -137,7 +135,7 @@
       "required": [
         "email",
         "username",
-		"dob"
+        "dob"
       ],
       "properties": {
         "username": {
