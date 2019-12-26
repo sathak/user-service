@@ -10,12 +10,12 @@
     
     var config = require('./config/config');
     const swaggerDefinition = {
-         basePath: 'https://userserviceapp.herokuapp.com/'
+         basePath: '/'
     };
 
      const options = {
              swaggerDefinition,
-             apis: ['./helper/route.js'], // <-- not in the definition, but in the options
+             apis: [path.resolve(__dirname, './helper/route.js')], // <-- not in the definition, but in the options
       };
  
     const swaggerSpec = swaggerJSDoc(options);
