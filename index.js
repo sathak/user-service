@@ -11,7 +11,6 @@
     expressOasGenerator.init(app, function(spec) {
      console.log(spec);
   _.set(spec, 'info.title', 'User');
-  _.set(spec, "paths['/path'].get.parameters[0].example", 2);
   return spec;
 });
     mongoose.Promise = global.Promise;
