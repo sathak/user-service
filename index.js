@@ -33,7 +33,7 @@ let options = {
             title: 'Swagger',
             version: '1.0.0',
         },
-        host: 'localhost:3000',
+        host: 'https://userserviceapp.herokuapp.com',
         basePath: '/v1',
         produces: [
             "application/json",
