@@ -17,24 +17,11 @@ module.exports = function (app) {
  *     description: Returns a list of all the Users, optionally sorted
  *     tags:
  *       - User
- *     parameters:
- *       - in: query
- *         name: sort
- *         type: string
- *         enum:
- *           - yes
- *           - no
  *     responses:
  *       200:
  *         description: List of Users
  *         schema:
  *           type: object
- *           properties:
- *             User:
- *               type: array
- *               description: all the users
- *               items:
- *                 type: string
  */
 
       .get(userapi.list_all_user)
