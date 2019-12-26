@@ -1,14 +1,14 @@
 'use strict';
  var express = require('express'),
+      expressOasGenerator = require('express-oas-generator'),
       app = express(),
       port = process.env.PORT || 3000,
-     expressSwagger = require('express-swagger-generator')(app),
       mongoose = require('mongoose'),
       User = require('./models/user'),
       bodyParser = require('body-parser');
     
-      var config = require('./config/config');
-
+    var config = require('./config/config');
+    expressOasGenerator.init(app, {});
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
@@ -25,27 +25,6 @@
 
     
     routes(app);
-
-let options = {
-    swaggerDefinition: {
-        info: {
-            description: 'This is a sample server',
-            title: 'Swagger',
-            version: '1.0.0',
-        },
-        host: 'https://userserviceapp.herokuapp.com',
-        basePath: '/v1',
-        produces: [
-            "application/json",
-            "application/xml"
-        ],
-        schemes: ['http', 'https']
-    },
-    basedir: __dirname, //app absolute path
-    files: ['./helper/route/*.js'] //Path to the API handle folder
-};
-expressSwagger(options)
-    
 
     app.listen(port);
 
