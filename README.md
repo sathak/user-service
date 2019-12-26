@@ -13,5 +13,5 @@ Run the command on project directory
 npm start
 ```
 
-Swagger API link[(https://userserviceapp.herokuapp.com/api-docs/)]
+[see the Swagger API link](https://userserviceapp.herokuapp.com/api-docs/)
 
