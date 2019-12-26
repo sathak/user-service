@@ -10,7 +10,7 @@
     var config = require('./config/config');
    
  
-    const swaggerSpec = require('./config/swagger.json');
+    var swaggerSpec = require('./config/swagger.json');
 
     
     mongoose.Promise = global.Promise;
@@ -28,7 +28,7 @@
 
     routes(app);
 
-   // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.listen(port);
 
     //console.log('Worker '+process.pid+' started');
