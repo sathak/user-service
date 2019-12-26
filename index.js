@@ -10,7 +10,7 @@
     
     var config = require('./config/config');
     const swaggerDefinition = {
-         basePath: '/'
+         basePath: 'https://userserviceapp.herokuapp.com/'
     };
 
      const options = {
@@ -20,7 +20,7 @@
  
     const swaggerSpec = swaggerJSDoc(options);
 
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    
     mongoose.Promise = global.Promise;
     mongoose.connect(config["Mongo-URL"]);
     var routes = require('./helper/route');
@@ -38,6 +38,7 @@
     
     routes(app);
 
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.listen(port);
 
     //console.log('Worker '+process.pid+' started');
