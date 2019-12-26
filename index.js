@@ -28,7 +28,7 @@
 
     routes(app);
 
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+   // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     app.listen(port);
 
     //console.log('Worker '+process.pid+' started');
