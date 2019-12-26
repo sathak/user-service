@@ -11,16 +11,26 @@ module.exports = function (app) {
     app.route('/api/user')
     /**
  * @swagger
- * /users:
- *    get:
- *      description: This should return all users
+ * /api/user:
+ *   get:
+ *     summary: List all the users
+ *     description: Returns a list of all the Users, optionally sorted
+ *     tags:
+ *       - User
+ *     parameters:
+ *       - in: query
+ *         name: sort
+ *         type: string
+ *         enum:
+ *           - yes
+ *           - no
  *     responses:
  *       200:
- *         description: List of users
+ *         description: List of Users
  *         schema:
  *           type: object
  *           properties:
- *             users:
+ *             User:
  *               type: array
  *               description: all the users
  *               items:
