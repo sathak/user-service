@@ -14,6 +14,18 @@ module.exports = function (app) {
  * /users:
  *    get:
  *      description: This should return all users
+ *     responses:
+ *       200:
+ *         description: List of users
+ *         schema:
+ *           type: object
+ *           properties:
+ *             users:
+ *               type: array
+ *               description: all the users
+ *               items:
+ *                 type: string
+ */
  */
       .get(userapi.list_all_user)
       .post(userapi.create_a_user);
