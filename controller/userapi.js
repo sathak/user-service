@@ -40,12 +40,8 @@ exports.update_a_user = function (req, res) {
     User.findOneAndUpdate({ userId: req.params.userId }, req.body, { new: true }, function (err, user) {
         if (err)
             res.send(err);
-       // res.json(user);
-       User.find({}, function (err, user) {
-        if (err)
-            res.send(err);
         res.json(user);
-    });
+    
     });
     
 };
